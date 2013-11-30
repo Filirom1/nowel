@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+  
+    Bootstrap
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="./docs-assets/css/docs.css" rel="stylesheet">
+<link href="./docs-assets/css/pygments-manni.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="./docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./docs-assets/ico/apple-touch-icon-144-precomposed.png">
+                               <link rel="shortcut icon" href="./docs-assets/ico/favicon.png">
+
+  </head>
+  <body class="bs-docs-home">
+
+    <!-- Page content of course! -->
+    <main class="bs-masthead" id="content" role="main">
+  <div class="container">
+    <h1>Noël !</h1>
+    <form class="form-inline" role="form">
+      <p class="lead">A qui vais-je offrir un cadeau cette année ?</p>
+      <p class="lead">
+        Pour le savoir tappe ton prénom ici: 
+
+	<input type="text" class="form-control" style="width: auto"/>
+	<button type="submit" class="btn btn-default">envoyer</button>   
+	</p>   
+    </form>
+    <p>
+    </p>
+  </div>
+</main>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script>
+$(function(){
+  $('form').submit(function(e){
+    $.ajax({
+      url: '/nowel?name=' + $('input[type="text"]').val(),
+      success: function(data){
+        $('h1').text(data);
+        $('form').remove();
+      }
+    })
+    return false;
+  })
+});
+  </script>
+  </body>
+</html>
+
