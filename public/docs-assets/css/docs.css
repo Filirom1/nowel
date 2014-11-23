@@ -260,6 +260,7 @@ body {
   }
   .bs-masthead h1 {
     font-size: 100px;
+    text-transform: capitalize;
   }
   .bs-masthead .lead {
     margin-right: 25%;
