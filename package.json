@@ -8,7 +8,8 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "underscore": "~1.5.2",
-    "express": "~3.4.5"
+    "express": "~3.4.5",
+    "request": "^2.67.0",
+    "underscore": "~1.5.2"
   }
 }

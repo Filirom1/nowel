@@ -1,0 +1,17 @@
+---
+- group: 1
+  name: corinne
+- group: 1
+  name: romain
+- group: 2
+  name: marie
+- group: 2
+  name: yannick
+- group: 3
+  name: nathalie
+- group: 3
+  name: dominique
+- group: 4
+  name: marie-france
+- group: 4
+  name: bernard

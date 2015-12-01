@@ -7,9 +7,10 @@ module.exports = {
 };
 
 function getList(listName, cb){
+  console.log(listName)
   var file = process.env.OPENSHIFT_DATA_DIR + listName + '.json';
-  fs.exist(file, function(err, exist){
-    if(exist){
+  fs.exists(file, function(err, exists){
+    if(exists){
       file.readFile(file, function(err, content){
         if(err){
           return cb(err);
@@ -19,11 +20,10 @@ function getList(listName, cb){
       return
     }
 
-    request('https://raw.githubusercontent.com/Filirom1/nowel/master/' + listName + '.json', function(err, body){
+    request('https://raw.githubusercontent.com/Filirom1/nowel/master/list/' + listName + '.json', function(err, req, body){
       if(err){
         return cb(err);
       }
-
       us = JSON.parse(body);
       nowel();
 
@@ -45,8 +45,7 @@ function getList(listName, cb){
           //console.error(err);
           return nowel();
         }
-
-      });
+      }
       fs.writeFile(file, JSON.stringify(list), function(err){
         if(err){
           return cb(err);
@@ -55,7 +54,4 @@ function getList(listName, cb){
       });
     });
   });
-}
-
-
 }
