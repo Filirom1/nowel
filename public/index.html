@@ -56,9 +56,11 @@
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script>
 $(function(){
+  var list = window.location.hash || "nowel";
+  debugger
   $('form').submit(function(e){
     $.ajax({
-      url: '/nowel?name=' + $('input[type="text"]').val(),
+      url: '/'+ list + '?name=' + $('input[type="text"]').val(),
       success: function(data){
         $('h1').text(data);
         $('form').remove();

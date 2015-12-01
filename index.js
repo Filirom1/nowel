@@ -1,6 +1,7 @@
 var fs = require('fs');
 var _ = require('underscore');
 var request = require('request');
+var yaml = require('js-yaml');
 
 module.exports = {
   getList: getList
@@ -9,9 +10,9 @@ module.exports = {
 function getList(listName, cb){
   console.log(listName)
   var file = process.env.OPENSHIFT_DATA_DIR + listName + '.json';
-  fs.exists(file, function(err, exists){
+  fs.exists(file, function(exists){
     if(exists){
-      file.readFile(file, function(err, content){
+      fs.readFile(file, function(err, content){
         if(err){
           return cb(err);
         }
@@ -20,11 +21,11 @@ function getList(listName, cb){
       return
     }
 
-    request('https://raw.githubusercontent.com/Filirom1/nowel/master/list/' + listName + '.json', function(err, req, body){
+    request('https://raw.githubusercontent.com/Filirom1/nowel/master/list/' + listName + '.yml', function(err, req, body){
       if(err){
         return cb(err);
       }
-      us = JSON.parse(body);
+      us = yaml.safeLoad(body);
       nowel();
 
       var list;

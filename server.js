@@ -11,7 +11,11 @@ app.get('/:list', function(req, res){
   var listName = req.param('list');
   var name = req.query.name.toLowerCase().replace(/ /, '-');
 
-  getList(listName, function(json){
+  getList(listName, function(err, json){
+    if(err){
+      console.error(name, e);
+      return res.send(400, e.message);
+    }
     var list = _.pluck(json, 'name');
     list.push(list[0]);
 
