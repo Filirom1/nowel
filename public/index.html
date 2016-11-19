@@ -58,7 +58,7 @@
 $(function(){
   $('form').submit(function(e){
     var list = window.location.hash || "";
-    list = list.replace(/^#/, '')
+    list = list.replace(/^#/, '');
     $.ajax({
       url: '/'+ list + '?name=' + $('input[type="text"]').val(),
       success: function(data){
