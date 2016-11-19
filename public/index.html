@@ -56,9 +56,9 @@
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script>
 $(function(){
-  var list = window.location.hash || "";
-  debugger
   $('form').submit(function(e){
+    var list = window.location.hash || "";
+    list = list.replace(/^#/, '')
     $.ajax({
       url: '/'+ list + '?name=' + $('input[type="text"]').val(),
       success: function(data){
