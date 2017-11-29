@@ -9,7 +9,7 @@ module.exports = {
 
 function getList(listName, cb){
   console.log(listName)
-  var file = process.env.OPENSHIFT_DATA_DIR + listName + '.json';
+  var file = listName + '.json';
   fs.exists(file, function(exists){
     if(exists){
       fs.readFile(file, function(err, content){
@@ -20,8 +20,7 @@ function getList(listName, cb){
       });
       return
     }
-
-    request('https://raw.githubusercontent.com/Filirom1/nowel/master/list/' + listName + '.yml', function(err, req, body){
+	fs.readFile('./list/' + listName + '.yml', function(err, body){
       if(err){
         return cb(err);
       }

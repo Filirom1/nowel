@@ -29,4 +29,4 @@ app.get('/:list', function(req, res){
   });
 });
 
-app.listen(+process.env.OPENSHIFT_NODEJS_PORT || 8080, process.env.OPENSHIFT_NODEJS_IP);
+app.listen(+process.env.PORT || 8080, process.env.IP);
