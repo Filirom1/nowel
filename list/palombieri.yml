@@ -4,14 +4,10 @@
 - group: 1
   name: romain
 - group: 2
-  name: sandra
-- group: 2
-  name: chris
-- group: 3
   name: nathalie
-- group: 3
+- group: 2
   name: dominique
-- group: 4
+- group: 3
   name: olivier
-- group: 4
+- group: 3
   name: veronique
