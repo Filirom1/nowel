@@ -11,6 +11,6 @@
     "express": "^4.16.4",
     "js-yaml": "^3.13.1",
     "request": "^2.88.0",
-    "underscore": "~1.5.2"
+    "underscore": "~1.12.0"
   }
 }
