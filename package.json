@@ -10,7 +10,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "js-yaml": "^3.13.1",
-    "request": "^2.88.0",
+    "request": "^2.65.0",
     "underscore": "~1.12.0"
   }
 }
