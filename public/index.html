@@ -155,24 +155,25 @@ svg{
  }
  
  .present {
+   zoom: 0.3;
    position: absolute;
-   left: 40%;
-   bottom: 35%;
+   right: 40%;
+   bottom: -20%;
    animation: moving-present 1s ease-in-out 1s 3;
  }
  
  @keyframes moving-present {
    0% {
-     transform: scaley(1);
+     transform: translateY(-10px);
    }
    20% {
      transform: translateY(90px);
    }
    40% {
-     transform: scalex(1.05);
+     transform: translateY(-10px);
    }
    100% {
-     transform: scaley(1.1);
+     transform: translateY(90px);
    }
  }
  
