@@ -978,11 +978,14 @@ $(function(){
     $.ajax({
       url: '/json/'+ list + ".json",
       success: function(json){
-        let name =  $('input[type="text"]').val();
+        let name =  $('input[type="text"]').val().toLowerCase().replace(/ /, '-');
 
         let i = json.findIndex(function (e){
           return e["name"] == name;
         })
+        if (i >= json.length){
+          i = 0
+        }
         let value = json[i+1]["name"]
         $('h1').text(value);
         $('form').remove();
