@@ -976,9 +976,15 @@ $(function(){
     var list = window.location.hash || "";
     list = list.replace(/^#/, '');
     $.ajax({
-      url: '/'+ list + '?name=' + $('input[type="text"]').val(),
-      success: function(data){
-        $('h1').text(data);
+      url: '/json/'+ list + ".json",
+      success: function(json){
+        let name =  $('input[type="text"]').val();
+
+        let i = json.findIndex(function (e){
+          return e["name"] == name;
+        })
+        let value = json[i+1]["name"]
+        $('h1').text(value);
         $('form').remove();
 		$('.present').removeClass("hide");
 		$('svg').css({ top: '-300px', right: "300px" });

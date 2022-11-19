@@ -13,8 +13,8 @@ app.get('/:list', function(req, res){
 
   getList(listName, function(err, json){
     if(err){
-      console.error(name, e);
-      return res.send(400, e.message);
+      console.error(name, err);
+      return res.send(400, err.message);
     }
     var list = _.pluck(json, 'name');
     list.push(list[0]);

@@ -9,7 +9,7 @@ module.exports = {
 
 function getList(listName, cb){
   console.log(listName)
-  var file = listName + '.json';
+  var file = "./public/json/" + listName + '.json';
   fs.exists(file, function(exists){
     if(exists){
       fs.readFile(file, function(err, content){
@@ -46,6 +46,7 @@ function getList(listName, cb){
           return nowel();
         }
       }
+      console.log("write " + file)
       fs.writeFile(file, JSON.stringify(list), function(err){
         if(err){
           return cb(err);
