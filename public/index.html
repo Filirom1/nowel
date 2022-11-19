@@ -983,7 +983,7 @@ $(function(){
         let i = json.findIndex(function (e){
           return e["name"] == name;
         })
-        if (i >= json.length){
+        if (i +1  >= json.length){
           i = 0
         }
         let value = json[i+1]["name"]
