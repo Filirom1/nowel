@@ -972,6 +972,24 @@ svg{
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script>
 $(function(){
+
+  function getNextName(jsonData, currentName) {
+    const index = jsonData.findIndex(item => item.name === currentName);
+    
+    if (index !== -1) {
+      // If the current name is not the last in the list, return the next name
+      if (index < jsonData.length - 1) {
+        return jsonData[index + 1].name;
+      } else {
+        // If the current name is the last, loop back to the first name
+        return jsonData[0].name;
+      }
+    } else {
+      // If the provided name is not found in the list, return null or handle accordingly
+      return null;
+    }
+  }
+
   $('form').submit(function(e){
     var list = window.location.hash || "";
     list = list.replace(/^#/, '');
@@ -979,14 +997,7 @@ $(function(){
       url: '/json/'+ list + ".json",
       success: function(json){
         let name =  $('input[type="text"]').val().toLowerCase().replace(/ /, '-');
-
-        let i = json.findIndex(function (e){
-          return e["name"] == name;
-        })
-        if (i +1  >= json.length){
-          i = 0
-        }
-        let value = json[i+1]["name"]
+        let value = getNextName(json, name)
         $('h1').text(value);
         $('form').remove();
 		$('.present').removeClass("hide");
